@@ -1,11 +1,13 @@
 #!/bin/bash
 
-if [ -d bin ] then
-    rm -rf bin
-fi
+rm -rf bin
 
 mkdir bin
 
-cd src
+ghc src/Main.hs -isrc/modules -dynamic -outputdir bin/out/ -o bin/Main
 
-ghc -imodules  Main.hs -dynamic -outputdir ../bin -o ../bin/file
+if [ -f bin/Main ]
+then
+	clear
+	bin/Main
+fi
