@@ -1,10 +1,26 @@
 module Game where
     
-type Value = Int
+type Value = String
 type Symbol = String
 
 type Card = (Value, Symbol)
 
 type Mallet = [Card]
 
-hola = "Llamada funcion"
+getMallet::Mallet
+getMallet = [("Q", "Trebol"), ("A", "Corazon")]
+
+addCard::Card->Mallet
+addCard card = (getMallet) ++ [card]
+
+findCard::Card->Mallet->Card
+findCard card mallet
+ | mallet == [] = ("", "")
+ | card == head mallet = card
+ | otherwise = findCard card (tail mallet)
+
+getValueCard::Symbol->Mallet->Value
+getValueCard symbol ((v, s):t)
+ | t == [] = ""
+ | symbol == s = v
+ | otherwise = getValueCard symbol t
