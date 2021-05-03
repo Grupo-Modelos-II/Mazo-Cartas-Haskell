@@ -1,3 +1,3 @@
-import modules.Game
+import Game
 
 main = putStr(hola)

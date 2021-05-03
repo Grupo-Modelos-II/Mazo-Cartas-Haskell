@@ -1,4 +1,5 @@
 module Game where
+    
 type Value = Int
 type Symbol = String
 
