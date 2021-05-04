@@ -1,17 +1,18 @@
-module Operations  where
+module Operations where
 
 import Game
 
 pedirCarta::Card->Mallet
-pedirCarta carta = addCard (carta)
+pedirCarta = addCard
 
 buscarCarta::Card->Mallet->Card
-buscarCarta carta mallet = findCard (carta) (mallet)
+buscarCarta = findCard
 
 preguntarValor::Symbol->Mallet->Value
-preguntarValor simbolo mallet = getValueCard (simbolo) (mallet)
+preguntarValor = getValueCard
 
-menuOpciones = "Escoja una opción: \n1) Pedir Carta \n2) Buscar carta en su mazo \n3) Preguntar por valor de la carta"
+menuOpciones::String
+menuOpciones = "Escoja una opción: \n1) Pedir Carta \n2) Buscar carta en su mazo \n3) Preguntar por valor de la carta\n"
 
 {-menu opcion = do
  if opcion == 1 then
