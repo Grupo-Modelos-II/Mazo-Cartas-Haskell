@@ -1,3 +1,6 @@
 import Operations
+import System.Random
+import Control.Monad (replicateM)
 
-main = menu
+main = (randomIO :: IO Int) >>= print
+-- main = menu
