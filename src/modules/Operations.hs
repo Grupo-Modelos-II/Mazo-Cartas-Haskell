@@ -8,8 +8,8 @@ pedirCarta = addCard
 buscarCarta::Card->Mallet->Card
 buscarCarta = findCard
 
-preguntarValor::Symbol->Mallet->Value
-preguntarValor = getValueCard
+preguntarValor::ValueString->Mallet->Int
+preguntarValor = getNumericValueCard
 
 menuOpciones::String
 menuOpciones = "Escoja una opción: \n1) Pedir Carta \n2) Buscar carta en su mazo \n3) Preguntar por valor de la carta\n"
@@ -35,10 +35,10 @@ menu = do
   symbol <- getLine
   print(buscarCarta(value, symbol) getMallet)
  else do
-  print "Simbolo de la carta:"
+  print "Valor en letras de la carta:"
   symbol <- getLine
   print(preguntarValor symbol getMallet)
 
- putStr "Repetir Proceso? Hijo de tu chingada Madre >:V\n"
+ putStr "¿Repetir Proceso? (Y, N)\n"
  input <- getLine
  if input == "yes" || input == "y" then menu else putStrLn "Chauuu"

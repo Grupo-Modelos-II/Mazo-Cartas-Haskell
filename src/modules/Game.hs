@@ -1,9 +1,9 @@
 module Game where
 
-type Value = String
+type ValueString = String
 type Symbol = String
 
-type Card = (Value, Symbol)
+type Card = (ValueString, Symbol)
 
 type Mallet = [Card]
 
@@ -19,8 +19,10 @@ findCard card mallet
  | card == head mallet = card
  | otherwise = findCard card (tail mallet)
 
-getValueCard::Symbol->Mallet->Value
-getValueCard symbol ((v, s):t)
- | null t = ""
- | symbol == s = v
- | otherwise = getValueCard symbol t
+getNumericValueCard::ValueString->Mallet->Int
+getNumericValueCard value ((v, s):t)
+ | null t = -1
+ | value == "J" || value == "Q" || value == "K" = 10
+ | value == "A" = 1
+ | value == v = read value ::Int
+ | otherwise = getNumericValueCard value t
