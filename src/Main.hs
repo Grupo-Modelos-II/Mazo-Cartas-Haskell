@@ -1,6 +1,7 @@
 import Operations
-import System.Random
-import Control.Monad (replicateM)
+import System.Random(randomRIO)
 
-main = (randomIO :: IO Int) >>= print
--- main = menu
+main = do
+ r <- randomRIO(0, 51) :: IO Int
+ print r
+{-- main = menu -}
