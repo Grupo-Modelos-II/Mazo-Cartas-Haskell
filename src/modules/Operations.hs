@@ -14,18 +14,31 @@ preguntarValor = getValueCard
 menuOpciones::String
 menuOpciones = "Escoja una opción: \n1) Pedir Carta \n2) Buscar carta en su mazo \n3) Preguntar por valor de la carta\n"
 
-{-menu opcion = do
- if opcion == 1 then
+
+menu = do
+
+ putStr menuOpciones
+
+ input <- getLine
+ let response = read input ::Int
+
+ if response == 1 then do
+  print "Valor de la carta:"
   value <- getLine
+  print "Simbolo de la carta:"
   symbol <- getLine
   print(pedirCarta(value, symbol))
- else if opcion == 2 then
+ else if response == 2 then do
+  print "Valor de la carta:"
   value <- getLine
+  print "Simbolo de la carta:"
   symbol <- getLine
   print(buscarCarta(value, symbol) getMallet)
- else if opcion == 3 then
+ else do
+  print "Simbolo de la carta:"
   symbol <- getLine
   print(preguntarValor symbol getMallet)
- putStr "Repetir Proceso? Hijo de tu chingada Madre >:V"
+
+ putStr "Repetir Proceso? Hijo de tu chingada Madre >:V\n"
  input <- getLine
- if input == "yes" || input == "y" then menu else putStr "Chauuu"-}
+ if input == "yes" || input == "y" then menu else putStrLn "Chauuu"
