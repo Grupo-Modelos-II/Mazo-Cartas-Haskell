@@ -1,4 +1,4 @@
-module Game where
+module Game  where
     
 type Value = String
 type Symbol = String

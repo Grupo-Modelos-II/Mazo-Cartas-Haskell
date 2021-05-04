@@ -1,18 +1,19 @@
-module Operations where
+module Operations  where
 
 import Game
 
-pedirCarta::(String, String)->[(String, String)]
-pedirCarta carta = addCard carta
+pedirCarta::Card->Mallet
+pedirCarta carta = addCard (carta)
 
-buscarCarta::(String, String)->[(String, String)]->(String, String)
-buscarCarta carta mallet = findCard carta mallet
+buscarCarta::Card->Mallet->Card
+buscarCarta carta mallet = findCard (carta) (mallet)
 
-preguntarValor::String->[(String, String)]->String
-preguntarValor simbolo mallet = getValueCard simbolo mallet
+preguntarValor::Symbol->Mallet->Value
+preguntarValor simbolo mallet = getValueCard (simbolo) (mallet)
 
-{-menu::Int->Bool
-menu opcion = do
+menuOpciones = "Escoja una opción: \n1) Pedir Carta \n2) Buscar carta en su mazo \n3) Preguntar por valor de la carta"
+
+{-menu opcion = do
  if opcion == 1 then
   value <- getLine
   symbol <- getLine
@@ -23,7 +24,7 @@ menu opcion = do
   print(buscarCarta(value, symbol) getMallet)
  else if opcion == 3 then
   symbol <- getLine
-  print(preguntarValor symbol mallet)
+  print(preguntarValor symbol getMallet)
  putStr "Repetir Proceso? Hijo de tu chingada Madre >:V"
  input <- getLine
- let response = if input == "yes" || input == "y" then True else False-}
+ if input == "yes" || input == "y" then menu else putStr "Chauuu"-}
